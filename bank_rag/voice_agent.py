@@ -85,10 +85,9 @@ async def entrypoint(ctx: JobContext):
     session = AgentSession(
         llm=google.beta.realtime.RealtimeModel(
             voice="Puck",
-            temperature=0.2,  # low temperature: stick close to tool output
+            temperature=0.2, 
         ),
-        # No separate stt/tts: the Gemini Live API handles speech in and
-        # out directly as part of the realtime model above.
+
     )
 
     await session.start(agent=BankVoiceAgent(), room=ctx.room)
