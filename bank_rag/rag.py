@@ -1,37 +1,3 @@
-"""
-Scoped RAG pipeline for an Armenian bank Q&A agent.
-
-Only answers about: loans/credits, deposits, and branch locations —
-using only data scraped from official institution websites (see scrape.py).
-Refuses everything else, and refuses to answer when retrieval doesn't
-find sufficiently relevant evidence, rather than guessing.
-
-Pipeline:
-  scrape.py  -> raw_data/<institution>/<topic>__<hash>.json (per page)
-  rag.py ingest -> chunks those JSON files, embeds them, stores in Chroma
-                   with metadata: institution, url, title, topic, collected_at
-  rag.py ask "<question>" ->
-      1. classify whether the question is in scope (loans/deposits/branches)
-      2. if not -> refuse, no retrieval, no generation on the question
-      3. if yes -> retrieve relevant chunks (optionally filtered by
-         institution/topic), check retrieval confidence
-      4. if evidence is too weak -> say it could not be found
-      5. otherwise -> answer strictly from retrieved context, with citations
-
-Setup:
-  pip install chromadb google-genai pyyaml
-  export GEMINI_API_KEY=your_key_here
-
-Usage:
-  python rag.py ingest
-  python rag.py ask "What is the minimum deposit amount at Ameriabank?"
-
-NOTE: if you're upgrading from an older version of this file that used
-Chroma's default (English-only) embedding function, delete chroma_db/
-and re-run `python rag.py ingest` — the new Gemini embeddings are a
-different size/space and aren't compatible with old stored vectors.
-"""
-
 import glob
 import json
 import os
