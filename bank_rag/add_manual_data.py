@@ -1,26 +1,3 @@
-"""
-Manually add institution data when a page can't be scraped (e.g. content
-is rendered by JavaScript and requests.get() only sees an empty shell).
-
-This writes a JSON file in the exact same format scrape.py produces, so
-it plugs straight into the normal pipeline: rag.py ingest picks it up
-like any scraped page, with the same chunking, embedding, and scope
-guardrails.
-
-Usage — from a text file:
-  python add_manual_data.py --institution "Ameriabank" --topic loans \
-      --url "https://ameriabank.am/hy/loans" --file loan_info.txt
-
-Usage — paste text directly (opens your editor, or just type and Ctrl+D
-on Linux/Mac, Ctrl+Z then Enter on Windows, when you're done):
-  python add_manual_data.py --institution "Ameriabank" --topic loans \
-      --url "https://ameriabank.am/hy/loans"
-
---url should still be the real official page (even if it renders empty
-for scraping) — it's what the assistant cites as the source. If you
-genuinely have no URL, pass --url "manual entry" instead.
-"""
-
 import argparse
 import hashlib
 import json
