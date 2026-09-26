@@ -1,20 +1,3 @@
-"""
-Serves web/index.html and mints a fresh LiveKit access token on request,
-so the browser client never needs a manually copy-pasted token.
-
-This replaces the LiveKit Cloud dashboard's token-generation step with a
-local equivalent — still no LiveKit Cloud involved.
-
-Usage:
-  pip install -r requirements.txt
-  python token_server.py
-  open http://localhost:8000
-
-The page calls GET /token on load, gets back a room name, identity, and
-signed JWT, and connects immediately — no fields to fill in for a normal
-test run.
-"""
-
 import os
 import secrets
 import string
