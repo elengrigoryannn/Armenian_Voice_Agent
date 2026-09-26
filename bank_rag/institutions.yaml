@@ -1,49 +1,10 @@
-
-# Configuration for institutions to scrape.
-#
-# To add a new institution: add a new entry below. No code changes needed
-# unless the site needs special HTML cleaning (see adapters.py).
-#
-# topic must be one of: loans, deposits, branches
-# adapter: "default" uses the generic cleaner in scrape.py. If a site's
-#   markup is too messy for the generic cleaner (e.g. content buried in
-#   unusual divs), give it a unique adapter name here and implement a
-#   matching function in adapters.py.
-
 institutions:
   - name: "Ameriabank"
     base_url: "https://ameriabank.am"
-    adapter: "default"
-    pages:
-      # Fill in the exact current URLs from the site for each topic.
-      - url: "https://ameriabank.am/en/loans"
-        topic: "loans"
-      - url: "https://ameriabank.am/en/deposits"
-        topic: "deposits"
-      - url: "https://ameriabank.am/en/branches"
-        topic: "branches"
-
+    
   - name: "Ardshinbank"
     base_url: "https://ardshinbank.am"
-    adapter: "default"
-    pages:
-      - url: "https://ardshinbank.am/en/loans"
-        topic: "loans"
-      - url: "https://ardshinbank.am/en/deposits"
-        topic: "deposits"
-      - url: "https://ardshinbank.am/en/branches"
-        topic: "branches"
-
+  
   - name: "Inecobank"
     base_url: "https://inecobank.am"
-    adapter: "default"
-    pages:
-      - url: "https://inecobank.am/en/loans"
-        topic: "loans"
-      - url: "https://inecobank.am/en/deposits"
-        topic: "deposits"
-      - url: "https://inecobank.am/en/branches"
-        topic: "branches"
 
-# To add a fourth institution, copy one of the blocks above, change the
-# name/base_url/pages, and rerun: python scrape.py && python rag.py ingest
