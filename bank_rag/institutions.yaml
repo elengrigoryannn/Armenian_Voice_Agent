@@ -1,10 +1,12 @@
 institutions:
   - name: "Ameriabank"
+    aliases: ["Ամերիաբանկ", "Америабанк"]
     base_url: "https://ameriabank.am"
     
   - name: "Ardshinbank"
+    aliases: ["Արդշինբանկ", "Ардшинбанк"]
     base_url: "https://ardshinbank.am"
   
-  - name: "Inecobank"
-    base_url: "https://inecobank.am"
-
+  - name: "IDbank"
+    aliases: ["ԱյԴի Բանկ", "АйДи Банк"]
+    base_url: "https://idbank.am"
