@@ -53,7 +53,7 @@ def main():
 
     inst_dir = os.path.join(RAW_DATA_DIR, args.institution)
     os.makedirs(inst_dir, exist_ok=True)
-    filename = f"{args.topic}__manual_{slugify(args.url + str(datetime.now()))}.json"
+    filename = f"{args.topic}.json"
     path = os.path.join(inst_dir, filename)
 
     with open(path, "w", encoding="utf-8") as f:
